@@ -35,7 +35,7 @@ int main() {
 	Manager* manager = dynamic_cast<Manager*>(cpo); //Manager* 타입으로 cpo를 dynamic_cast함
 	CEO* ceo = dynamic_cast<CEO*>(cpo); //CEO*타입으로 cpo를 dynamic_cast함
 
-	assert(typeid(cpo) == typeid(Staff*)); //cpo와 Staff*의 typeid가 같다면 값이 0이 되므로 assert 메시지가 출력됨
+	assert(typeid(cpo) == typeid(Staff*)); //cpo와 Staff*의 typeid가 다르다면 값이 0이 되므로 assert 메시지가 출력됨
 
 	delete cpo; //new 연산자로 동적 할당한 객체를 delete
 	delete staff;
