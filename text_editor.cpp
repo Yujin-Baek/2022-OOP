@@ -41,17 +41,21 @@ class Command {
     void read_file() {
       ifstream rfile ("test.txt");
       int c;
-      while((c=rfile.get())!=EOF)
-      text.push_back((char)c);
-      rfile.close();
-      print();
+      if(rfile.is_open()) {
+        while((c=rfile.get())!=EOF) text.push_back((char)c);
+        rfile.close();
+        print();
+      } else {
+        cout << "파일을 열 수 없습니다." << endl;
+      }
+      
     }
 
     void save() {
       ofstream wfile ("test.txt");
       string s_text (text.begin(), text.end());
       if (wfile.fail()) {
-		    cerr << "Error!" << endl;
+		    cerr << "내용을 저장하는데 실패했습니다." << endl;
 	    }
 	    wfile << s_text << std::endl;
 
